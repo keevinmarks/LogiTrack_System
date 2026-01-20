@@ -13,7 +13,7 @@
 
 | 📍 Mapa de Operações | 📋 Kanban Board |
 |:---:|:---:|
-| ![Mapa](assets/kanban_board) | ![Kanban](assets/kanban_board_2) |
+| ![Mapa](assets/kanban_board.png) | ![Kanban](assets/kanban_board_2.png) |
 | *Visualização de entregas em tempo real* | *Gestão de status via arrastar e soltar* |
 
 > **Nota:** As imagens acima são ilustrativas. Substitua pelos prints reais do projeto na pasta `/assets`.
