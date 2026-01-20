@@ -16,7 +16,8 @@
 | ![Mapa](assets/kanban_board.png) | ![Kanban](assets/kanban_board_2.png) |
 | *Visualização de entregas em tempo real* | *Gestão de status via arrastar e soltar* |
 | 👤 Login | ⚙️ Configurações |
-|:---:|:---:|
+
+
 | ![Mapa](assets/login_page.png) | ![Kanban](assets/Settings.png) |
 | *Visualização de entregas em tempo real* | *Gestão de status via arrastar e soltar* |
 
