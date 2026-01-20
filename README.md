@@ -1,6 +1,6 @@
 # 🚚 LogiTrack
 
-![Status](https://img.shields.io/badge/Status-Finalizado-success)
+![Status](https://img.shields.io/badge/Status-Em_andamento-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
@@ -13,7 +13,7 @@
 
 | 📍 Mapa de Operações | 📋 Kanban Board |
 |:---:|:---:|
-| ![Mapa](https://via.placeholder.com/600x300?text=Dashboard+com+Mapa) | ![Kanban](https://via.placeholder.com/600x300?text=Kanban+Drag+and+Drop) |
+| ![Mapa](assets/Settings.png) | ![Kanban](assets/kanban_board_2) |
 | *Visualização de entregas em tempo real* | *Gestão de status via arrastar e soltar* |
 
 > **Nota:** As imagens acima são ilustrativas. Substitua pelos prints reais do projeto na pasta `/assets`.
