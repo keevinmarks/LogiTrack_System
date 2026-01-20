@@ -1,0 +1,119 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- MODELS ---
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(MANAGER)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Driver {
+  id           String       @id @default(uuid())
+  name         String
+  
+  // Deixei opcional (?) para facilitar o cadastro rápido
+  licensePlate String?      @unique @map("license_plate") 
+  vehicleModel String?      @map("vehicle_model")
+  
+  status       DriverStatus @default(AVAILABLE)
+  
+  // Relacionamento 1: Rotas (Histórico organizado)
+  routes       Route[]
+
+  // Relacionamento 2: ATALHO DIRETO (Para o Kanban funcionar)
+  deliveries   Delivery[]
+  
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@map("drivers")
+}
+
+model Route {
+  id         String      @id @default(uuid())
+  name       String      
+  status     RouteStatus @default(PLANNED)
+  
+  driverId   String      @map("driver_id")
+  driver     Driver      @relation(fields: [driverId], references: [id])
+  
+  deliveries Delivery[]
+  
+  startedAt  DateTime?   @map("started_at")
+  finishedAt DateTime?   @map("finished_at")
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  @@map("routes")
+}
+
+model Delivery {
+  id           String         @id @default(uuid())
+  customerName String         @map("customer_name")
+  address      String
+  
+  latitude     Float
+  longitude    Float
+  
+  status       DeliveryStatus @default(PENDING)
+  
+  // Rota é opcional (Entrega sem rota definida)
+  routeId      String?        @map("route_id")
+  route        Route?         @relation(fields: [routeId], references: [id])
+  
+  // --- O PULO DO GATO ---
+  // Isso permite atribuir um motorista direto no Kanban sem criar rota
+  driverId     String?        @map("driver_id")
+  driver       Driver?        @relation(fields: [driverId], references: [id])
+  // ----------------------
+
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("deliveries")
+}
+
+// --- ENUMS ---
+
+enum Role {
+  ADMIN
+  MANAGER
+  DRIVER_APP
+}
+
+enum DriverStatus {
+  AVAILABLE
+  ON_ROUTE
+  INACTIVE
+}
+
+enum RouteStatus {
+  PLANNED
+  ACTIVE
+  COMPLETED
+  CANCELED
+}
+
+enum DeliveryStatus {
+  PENDING
+  IN_TRANSIT
+  DELIVERED
+  FAILED
+}
