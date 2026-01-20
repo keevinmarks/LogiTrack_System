@@ -78,10 +78,10 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 
 ### 1. Clonar o Repositório
 
-```bash
 git clone [https://github.com/SEU-USUARIO/logitrack.git](https://github.com/SEU-USUARIO/logitrack.git)
 cd logitrack
-2. Configurando o Backend (Servidor)
+
+### 2. Configurando o Backend (Servidor)
 Abra um terminal, acesse a pasta backend e instale as dependências:
 
 Bash
@@ -115,7 +115,7 @@ Bash
 npm run dev
 🟢 O backend estará rodando em http://localhost:3000
 
-3. Configurando o Frontend (Interface)
+### 3. Configurando o Frontend (Interface)
 Abra outro terminal (mantenha o backend rodando), volte para a raiz e acesse a pasta frontend:
 
 Bash
@@ -144,5 +144,5 @@ No card de uma entrega, selecione um motorista (Ex: "Seu Zé da Van").
 
 Vá em Ajustes (ícone de engrenagem) para cadastrar novos motoristas ou entregas.
 
-🤝 Autor
+### 🤝 Autor
 Desenvolvido por Kevin Marques.
