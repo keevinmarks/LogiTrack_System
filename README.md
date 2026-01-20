@@ -92,10 +92,10 @@ Crie um arquivo chamado .env na raiz da pasta backend e configure a conexão com
 
 Snippet de código
 
-# Exemplo de conexão local (ajuste usuário e senha conforme sua instalação do Postgres)
+## Exemplo de conexão local (ajuste usuário e senha conforme sua instalação do Postgres)
 DATABASE_URL="postgresql://postgres:suasenha@localhost:5432/logitrack?schema=public"
 
-# Chave secreta para assinar os tokens (pode ser qualquer string aleatória)
+## Chave secreta para assinar os tokens (pode ser qualquer string aleatória)
 JWT_SECRET="minha_chave_secreta_super_segura_123"
 
 PORT=3000
@@ -103,10 +103,10 @@ Execute as migrações para criar as tabelas e rode o Seed para criar o usuário
 
 Bash
 
-# Cria as tabelas no banco
+## Cria as tabelas no banco
 npx prisma db push
 
-# Popula o banco com usuário Admin e entregas em Manaus
+## Popula o banco com usuário Admin e entregas em Manaus
 npx prisma db seed
 Inicie o servidor:
 
